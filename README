@@ -1,0 +1,6 @@
+This is the start of a perl script to take in syslog from an ossec instance, 
+parse it and output as CEF.
+
+Any ?'s, email cslyon@gmail.com
+
+
