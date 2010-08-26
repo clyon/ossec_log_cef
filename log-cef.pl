@@ -14,7 +14,7 @@ my $syslogd = Net::Syslogd->new(LocalPort=>'515')
   or die "Error creating Syslogd listener: %s", Net::Syslogd->error;
 
 # The syslog client
-my $s=new Net::Syslog(Facility=>'syslog', SyslogHost=>'10.2.75.199');
+my $s=new Net::Syslog(Facility=>'syslog', SyslogHost=>'<hostip>');
 
 # Log file for this system
 open ( FH, "+>>$logfile" );
@@ -122,7 +122,7 @@ while (1) {
   if ( $sev > 10 ) { $sev = 10; }
   
   # build the CEF message
-  $cefout = "CEF:0|mozilla|ossec|1.0|$alert_rule_id|$evt_name|$alert_level|$extout";
+  $cefout = "CEF:0|<vendor>|ossec|1.0|$alert_rule_id|$evt_name|$alert_level|$extout";
   #send out the CEF message
   $s->send("$cefout");
   #send message to log
